@@ -22,7 +22,7 @@
         
                     <div class="form-group">
                         <label for="content">Content</label>
-
+                        {{-- <textarea class="description" name="description"></textarea> --}}
                         <textarea class="form-control mb-2" id="content" name="content" cols="30" rows="10">
                         </textarea>
                         
@@ -33,7 +33,6 @@
                       <input type="file" class="form-control-file" name="image_url" id="image_url">
                     </div>
         
-        
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                    
@@ -43,3 +42,7 @@
     </div>
 </div>
 @endsection
+
+
+
+

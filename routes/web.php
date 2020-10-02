@@ -17,17 +17,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//back admin page
 
 Route::get('/admin/blog', 'admin\PostController@index')->name('blog.index');
 Route::get('/admin/blog/create', 'admin\PostController@create')->name('post.create');
 Route::post('/admin/blog', 'admin\PostController@store')->name('post.store');
-// Route::get('/admin/blog/{blog}', 'admin\PostController@show')->name('post.show');
-Route::get('/admin/blog/{id}/edit', 'admin\PostController@edit')->name('post.edit');
+//enviamos como parametro un objeto de la base de datos
+Route::get('/admin/blog/{post}', 'admin\PostController@show')->name('post.show');
+Route::get('/admin/blog/{post}/edit', 'admin\PostController@edit')->name('post.edit');
+Route::patch('/admin/blog/{post}', 'admin\PostController@update')->name('post.update');
+Route::delete('/admin/blog/{post}', 'admin\PostController@destroy')->name('post.destroy');
 
 
+
+//front usuarios
 Route::get('/blog','HomeblogController@index')->name('post.home.page');
-
 Route::get('/blog/{slug}', ['as' => 'inicio.show.inicio', 'uses' => 'HomeblogController@show']);
+//fornt categoria
+Route::get('/blog/category/{slug}', 'HomeblogController@category')->name('category.show');
 
 
 Auth::routes();

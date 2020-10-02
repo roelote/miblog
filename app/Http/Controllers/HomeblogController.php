@@ -12,14 +12,27 @@ class HomeblogController extends Controller
     public function index()
     {
         //falta optimizar consulta
-        $post =  Post::all();
+
+        $post =  Post::orderBy('id', 'desc')->get();
         return view('blog.index',compact('post'));
     }
 
     public function show($slug)
     {
-        $slung = Post::where('slug','=', $slug)->firstOrFail();
-        return view('blog.show',compact('slung'));
+        $slug = Post::where('slug','=', $slug)->firstOrFail();
+        return view('blog.show',compact('slug'));
     }
+
+    public function category($slug)
+    {
+            $category = Category::where('slug',$slug)->pluck('id')->first();
+
+            $post = Post::where('category_id',$category)->get();
+
+        $categoryname = Category::where('slug',$slug)->pluck('title')->first();
+
+        return view('blog.categoryshow',compact('post','categoryname'));
+    }
+
 
 }

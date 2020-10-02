@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -31,12 +31,19 @@
                         <tr>
                             <th scope="row">{{$p->id}}</th>
                             <td> {{$p->title}} </td>
-                            <td> URL</td>
+                            <td> {{$p->slug}}</td>
                             <td> {{$p->category->title}} </td>
                             <td>
-                                <a href="{{route('inicio.show.inicio',$p->slug)}}" class="btn btn-success" >Ver</a>
+                                <a href="{{route('post.show',$p->id)}}" class="btn btn-success" >Ver</a>
                                 <a href="{{route('post.edit',$p->id)}}" class="btn btn-primary" >Editar</a>
-                                <a href="" class="btn btn-danger" >Borrar</a>
+
+                                    <div class="d-inline-block">
+                                        <form method="POST" class="inline-block" action="{{route('post.destroy',$p->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" class="btn btn-danger" value="Borrar" >
+                                            </form>
+                                    </div>
                           </tr>
                         @endforeach
                       
