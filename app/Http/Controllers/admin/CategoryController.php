@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = Category::all();
+        return view('admin.category.index',compact('category'));
     }
 
     /**
@@ -25,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -36,7 +38,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $datos = $request->validate([
+            'title' => 'required',
+            'content' =>'required'
+        ]);
+
+        $slug = Str::slug($datos['title'], '-');
+
+        Category::create([
+            'title' => $datos['title'],
+            'slug' => $slug,
+            'content' => $datos['content']
+        ]);
+
+       return redirect()->route('category.index');
+
+
     }
 
     /**
@@ -58,7 +76,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
@@ -70,7 +88,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $datos = $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'content' =>'required'
+       ]);
+
+         // asignacion de valores cuando actualizas noma y esta creado la clase, como ven se pasa por parametro
+
+         $category->title = $datos['title'];
+         $category->slug = $datos['slug'];
+         $category->content = $datos['content'];
+         $category->save();
+
+         return redirect()->route('category.index'); 
+
     }
 
     /**

@@ -24,7 +24,19 @@
                                 <label for="slug">Url :</label>
                                 <input type="text" class="form-control" name="slug" value="{{$post->slug}}"/>
                             </div>
-                
+
+                            <div class="form-group">
+                                <label for="category">Seleccione Categoria</label>
+                                <select class="form-control" id="category" name="category">
+                                    @foreach($category as $cat)
+                                    <option value="{{ $cat->id }}" {{ $post->category_id == $cat->id ? 'selected' : '' }}
+                                        >{{$cat->title}}</option>
+
+                                    @endforeach
+            
+                                </select>
+                              </div>
+
                             <div class="form-group">
                                 <label for="content">Content</label>
                                 <textarea class="form-control mb-2" id="content" name="content" cols="30" rows="10">{{$post->content}}</textarea>

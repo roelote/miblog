@@ -28,6 +28,13 @@ Route::get('/admin/blog/{post}/edit', 'admin\PostController@edit')->name('post.e
 Route::patch('/admin/blog/{post}', 'admin\PostController@update')->name('post.update');
 Route::delete('/admin/blog/{post}', 'admin\PostController@destroy')->name('post.destroy');
 
+//category back
+
+Route::get('/admin/category', 'admin\CategoryController@index')->name('category.index');
+Route::get('/admin/category/create', 'admin\CategoryController@create')->name('category.create');
+Route::post('/admin/category', 'admin\CategoryController@store')->name('category.store');
+Route::get('/admin/category/{category}/edit', 'admin\CategoryController@edit')->name('category.edit');
+Route::patch('/admin/category/{category}', 'admin\CategoryController@update')->name('category.update');
 
 
 //front usuarios

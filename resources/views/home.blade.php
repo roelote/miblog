@@ -15,7 +15,7 @@
                     @endif
 
                    <h2><a href="/admin/blog">Blog</a></h2>
-                   <h2>Category</h2>
+                    <h2><a href="{{route('category.index')}}">Category</a></h2>
                 </div>
             </div>
         </div>

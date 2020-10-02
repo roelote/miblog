@@ -11,37 +11,22 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                   <h1 class="text-uppercase text-center">Crear Post</h1>
+                   <h1 class="text-uppercase text-center">Crear Category</h1>
 
-                   <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
+                   <form method="POST" action="{{route('category.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                       <label for="title">Title</label>
                     <input type="text" class="form-control mb-2" id="title" name="title" placeholder="title">
                     </div>
-                    <div class="form-group">
-                        <label for="category">Seleccione Categoria</label>
-                        <select class="form-control" id="category" name="category">
-                            @foreach($category as $cat)
-                            <option value="{{$cat->id}}">{{$cat->title}}</option>
-                            @endforeach
-    
-                        </select>
-                      </div>
         
                     <div class="form-group">
                         <label for="content">Content</label>
-                        {{-- <textarea class="description" name="description"></textarea> --}}
                         <textarea class="form-control mb-2" id="content" name="content" cols="30" rows="10">
                         </textarea>
                         
                     </div>
-        
-                    <div class="form-group">
-                      <label for="image_url">Imagen</label>
-                      <input type="file" class="form-control-file" name="image_url" id="image_url">
-                    </div>
-        
+                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                    

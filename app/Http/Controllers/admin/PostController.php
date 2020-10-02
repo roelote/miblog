@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Category;
 use App\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -30,7 +31,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.blog.create');
+         
+        $category = Category::all();
+         
+        return view('admin.blog.create',compact('category'));
+
     }
 
     /**
@@ -78,18 +83,18 @@ class PostController extends Controller
                 $path = "uploads/default.jpg";
             }
 
-
             // ahora insertamos en la bd teniendo todo los campos
 
-            Post::create([
-                'title' => $datos['title'],
-                'slug' => $slug,
-                'content' => $datos['content'],
-                'image_url' => '/storage/'.$path,
-                'category_id'=>1
-            ]);
+             Post::create([
+                 'title' => $datos['title'],
+                 'slug' => $slug,
+                 'content' => $datos['content'],
+                 'image_url' => '/storage/'.$path,
+                 'category_id'=>$request['category']
+             ]);
   
-           return redirect()->route('blog.index');
+        return redirect()->route('blog.index');
+
 
     }
 
@@ -118,10 +123,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-    
+        $category = Category::all();
+
         // $post = Post::findOrFail($id);
 
-         return view('admin.blog.edit',compact('post'));
+         return view('admin.blog.edit',compact('post','category'));
     }
 
     /**
@@ -140,6 +146,7 @@ class PostController extends Controller
              'content' =>'required',
              'image_url' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
+
 
         if ($request->file('image_url')) {
 
@@ -170,10 +177,10 @@ class PostController extends Controller
           $post->slug = $datos['slug'];
           $post->content = $datos['content'];
           $post->image_url = '/storage/'.$path;
-          $post->category_id = 1;
+          $post->category_id = $request['category'];
           $post->save();
 
-          return redirect()->route('blog.index'); 
+       return redirect()->route('blog.index'); 
 
     }
 
