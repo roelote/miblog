@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Category;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 
 class PostController extends Controller
@@ -82,6 +83,9 @@ class PostController extends Controller
             else{
                 $path = "uploads/default.jpg";
             }
+
+             $img = Image::make(public_path('storage/'.$path))->fit(730, 340);
+             $img->save();
 
             // ahora insertamos en la bd teniendo todo los campos
 
@@ -171,6 +175,9 @@ class PostController extends Controller
             else{
                 $path = "uploads/default.jpg";
             }
+
+            $img = Image::make(public_path('storage/'.$path))->fit(730, 340);
+            $img->save();
 
           // asignacion de valores cuando actualizas noma y esta creado la clase, como ven se pasa por parametro
           $post->title = $datos['title'];
