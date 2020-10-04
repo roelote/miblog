@@ -23,6 +23,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Url</th>
                         <th scope="col">Category</th>
+                        <th scope="col">State</th>
                         <th scope="col">---</th>
                       </tr>
                     </thead>
@@ -33,6 +34,14 @@
                             <td> {{$p->title}} </td>
                             <td> {{$p->slug}}</td>
                             <td> {{$p->category->title}} </td>
+                            {{-- <td> {{ $p->state == 1 ? 'Publicado' : 'No Pubicado'}}</td> --}}
+                             <td> @if ( $p->state == 1)
+                                      <span class="text-success">Published</span>
+                                    @else
+                                      <span class="text-danger">Not Published</span>
+                                 @endif     
+                            </td> 
+
                             <td>
                                 <a href="{{route('post.show',$p->id)}}" class="btn btn-success" >Ver</a>
                                 <a href="{{route('post.edit',$p->id)}}" class="btn btn-primary" >Editar</a>

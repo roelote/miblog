@@ -28,19 +28,36 @@
     
                         </select>
                       </div>
+
+                      <div class="form-group">
+                        <label for="excerpt">excerpt</label>
+                        {{-- <textarea class="description" name="description"></textarea> --}}
+                        <textarea class="form-control mb-2" id="excerpt" name="excerpt" cols="30" rows="5"></textarea>
+                      </div> 
         
                     <div class="form-group">
                         <label for="content">Content</label>
                         {{-- <textarea class="description" name="description"></textarea> --}}
-                        <textarea class="form-control mb-2" id="content" name="content" cols="30" rows="10">
-                        </textarea>
+                        <textarea class="form-control mb-2" id="content" name="content" cols="30" rows="10"></textarea>
                         
+                    </div>
+                    <div class="form-group">   
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="publicado" value="1" name="state" class="custom-control-input" checked="">
+                            <label class="custom-control-label" for="publicado" >Publicado</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="nopublicado" value="0" name="state" class="custom-control-input">
+                            <label class="custom-control-label" for="nopublicado">No Publicado</label>
+                        </div>
                     </div>
         
                     <div class="form-group">
                       <label for="image_url">Imagen</label>
                       <input type="file" class="form-control-file" name="image_url" id="image_url">
                     </div>
+
+
         
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -52,6 +69,23 @@
 </div>
 @endsection
 
+ @section('scripts')
 
+<script src="//cdn.ckeditor.com/4.15.0/full/ckeditor.js"></script>
+  
+<script>
+  var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+  };
+</script> 
+<script>
+    CKEDITOR.replace('excerpt', options);
+    CKEDITOR.replace('content', options);
+</script>  
+
+@endsection
 
 

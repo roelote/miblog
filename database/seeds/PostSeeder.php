@@ -20,7 +20,10 @@ class PostSeeder extends Seeder
             'slug' => 'primer-post-de-esta-publicacion',
             'image_url'=>$url_imagenes,
             'content' => ' Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque, a sodales odio scelerisque consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sed felis mi. Nunc leo metus, aliquet at dui vitae, mollis facilisis augue. Sed pulvinar tristique volutpat. Nulla augue eros, ultrices id pharetra at, tempor et elit. Proin maximus fermentum ante, ut finibus neque euismod id. Nulla posuere odio eu vestibulum hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur est nulla, bibendum elementum fermentum in, posuere a nisl. Suspendisse tristique augue lacus, et feugiat justo placerat porttitor. Praesent hendrerit metus id enim ornare hendrerit. ',
-            'category_id'=>'1'
+            'category_id'=>'1',
+            'state'=>'1',
+            'excerpt'=>'Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque'
+
         ]);
 
         DB::table('posts')->insert([
@@ -28,7 +31,9 @@ class PostSeeder extends Seeder
             'slug' => 'primer post de esta publicacion 2 ',
             'image_url'=>$url_imagenes,
             'content' => ' Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque, a sodales odio scelerisque consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sed felis mi. Nunc leo metus, aliquet at dui vitae, mollis facilisis augue. Sed pulvinar tristique volutpat. Nulla augue eros, ultrices id pharetra at, tempor et elit. Proin maximus fermentum ante, ut finibus neque euismod id. Nulla posuere odio eu vestibulum hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur est nulla, bibendum elementum fermentum in, posuere a nisl. Suspendisse tristique augue lacus, et feugiat justo placerat porttitor. Praesent hendrerit metus id enim ornare hendrerit. ',
-            'category_id'=>'1'
+            'category_id'=>'1',
+            'state'=>'1',
+            'excerpt'=>'Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque'
         ]);
 
         DB::table('posts')->insert([
@@ -36,7 +41,9 @@ class PostSeeder extends Seeder
             'slug' => 'primer post de esta publicacion 3',
             'image_url'=>$url_imagenes,
             'content' => ' Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque, a sodales odio scelerisque consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sed felis mi. Nunc leo metus, aliquet at dui vitae, mollis facilisis augue. Sed pulvinar tristique volutpat. Nulla augue eros, ultrices id pharetra at, tempor et elit. Proin maximus fermentum ante, ut finibus neque euismod id. Nulla posuere odio eu vestibulum hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur est nulla, bibendum elementum fermentum in, posuere a nisl. Suspendisse tristique augue lacus, et feugiat justo placerat porttitor. Praesent hendrerit metus id enim ornare hendrerit. ',
-            'category_id'=>'2'
+            'category_id'=>'2',
+            'state'=>'1',
+            'excerpt'=>'Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque'
         ]);
 
         DB::table('posts')->insert([
@@ -44,7 +51,9 @@ class PostSeeder extends Seeder
             'slug' => 'primer post de esta publicacion 4',
             'image_url'=>$url_imagenes,
             'content' => ' Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque, a sodales odio scelerisque consectetur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sed felis mi. Nunc leo metus, aliquet at dui vitae, mollis facilisis augue. Sed pulvinar tristique volutpat. Nulla augue eros, ultrices id pharetra at, tempor et elit. Proin maximus fermentum ante, ut finibus neque euismod id. Nulla posuere odio eu vestibulum hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur est nulla, bibendum elementum fermentum in, posuere a nisl. Suspendisse tristique augue lacus, et feugiat justo placerat porttitor. Praesent hendrerit metus id enim ornare hendrerit. ',
-            'category_id'=>'2'
+            'category_id'=>'2',
+            'state'=>'1',
+            'excerpt'=>'Phasellus vehicula vitae lectus a dictum. Nunc semper arcu neque'
         ]);
     }
 }

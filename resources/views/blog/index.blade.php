@@ -12,7 +12,7 @@
                 <img class="card-img-top" src="{{$p->image_url}}" alt="Card image cap">
                 <div class="card-body">
                 <h2 class="card-title">{{$p->title}}</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                <p class="card-text">{!! $p->excerpt !!}</p>
                 <a href="{{route('inicio.show.inicio',$p->slug)}}" class="btn btn-primary">Read More </a>
                 </div>
                 <div class="card-footer text-muted">

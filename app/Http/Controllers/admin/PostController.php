@@ -51,6 +51,7 @@ class PostController extends Controller
 
         $datos = $request->validate([
             'title' => 'required',
+            'excerpt' => 'required',
             'content' =>'required',
             'image_url' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
@@ -92,10 +93,14 @@ class PostController extends Controller
              Post::create([
                  'title' => $datos['title'],
                  'slug' => $slug,
+                 'excerpt' => $datos['excerpt'],
                  'content' => $datos['content'],
                  'image_url' => '/storage/'.$path,
-                 'category_id'=>$request['category']
+                 'category_id'=>$request['category'],
+                 'state'=> $request['state']
              ]);
+
+            //  dd($request);
   
         return redirect()->route('blog.index');
 
@@ -146,6 +151,7 @@ class PostController extends Controller
 
          $datos = $request->validate([
              'title' => 'required',
+             'excerpt' => 'required',
              'slug' => 'required',
              'content' =>'required',
              'image_url' => 'image|mimes:jpeg,png,jpg,gif,svg'
@@ -182,9 +188,11 @@ class PostController extends Controller
           // asignacion de valores cuando actualizas noma y esta creado la clase, como ven se pasa por parametro
           $post->title = $datos['title'];
           $post->slug = $datos['slug'];
+          $post->excerpt = $datos['excerpt'];
           $post->content = $datos['content'];
           $post->image_url = '/storage/'.$path;
           $post->category_id = $request['category'];
+          $post->state = $request['state'];
           $post->save();
 
        return redirect()->route('blog.index'); 

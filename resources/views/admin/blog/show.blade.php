@@ -12,7 +12,8 @@
                         </div>
                     @endif
                    <h1 class="text-uppercase text-center">post nombre : {{$post->title}} </h1>
-                   <p>{{$post->content}}</p>
+                   <p>{!!$post->content!!}</p>
+                   <p>{!!$post->excerpt!!}</p>
                     <img src="{{$post->image_url}}" class="img-fluid" alt="">
                 </div>
             </div>

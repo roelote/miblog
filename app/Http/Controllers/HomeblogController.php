@@ -13,8 +13,9 @@ class HomeblogController extends Controller
     {
         //falta optimizar consulta
 
-        $post =  Post::orderBy('id', 'desc')->paginate(3);
+        $post =  Post::orderBy('id', 'desc')->where('state','1')->paginate(3);
         $category = Category::all();
+
         return view('blog.index',compact('post','category'));
     }
 
